@@ -2,11 +2,11 @@ class ImagesController < ApplicationController
 
   def index
     @images = Image.all
-    @category = Category.find_by(params[:id])
+    @category = Category.find(params[:category_id])
   end
 
   def show
-    @image = Image.find(params[:id])
+    @image = Image.find(params[:image_id])
     @caption = Caption.new
     @caption.image_id = @caption.id
 

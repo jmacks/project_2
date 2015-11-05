@@ -3,6 +3,7 @@
   <% @images.each do |image| %>
     <li>
       <%= link_to 'Image', category_image_path(image) %>
+      <img src= "<%= image.photo_url %>" alt="<%= image.title %>" />
     </li>
     <% end %>
 </ul>
