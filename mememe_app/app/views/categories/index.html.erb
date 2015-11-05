@@ -1,0 +1,10 @@
+<h1>Choose an Image Category</h1>
+<ul>
+  <%= @categories.each do |category| %>
+  <li>
+    <%= link_to category.name, category_images_path(category) %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to 'HOME', root_path %>

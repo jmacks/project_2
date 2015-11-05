@@ -1,0 +1,19 @@
+<h1>The Path to Meme Starts Here</h1>
+<%= form_for(@image) do |f| %>
+  <ul>
+    <% @image.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+  </ul>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :photo_url %><br />
+    <%= f.text_area :photo_url %>
+  </p>
+  <p>
+    <%= f.submit 'memeME' %>
+  </p>
+  <% end %>

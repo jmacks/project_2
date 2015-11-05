@@ -1,0 +1,10 @@
+<h1>Welcome to <%= @category.name %> Images</h1>
+<ul>
+  <% @images.each do |image| %>
+    <li>
+      <%= link_to 'Image', category_image_path(image) %>
+    </li>
+    <% end %>
+</ul>
+
+<h3><%= link_to 'Post a Potential Meme', new_category_image_path %></h3>
