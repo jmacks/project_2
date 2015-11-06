@@ -14,7 +14,7 @@
 <ul>
  <% @image.captions.each do |caption| %>
  <li>
- <p><%= caption.text %></p>
+ <%= caption.text %><button class="like"><%= link_to 'LIKE', '/categories/:category_id/images/:image_id/captions/:id/upvote' %></button>
  </li>
  <% end %>
  </ul>

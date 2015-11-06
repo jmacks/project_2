@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
-  resources :users do 
+  resources :users do
     resources :images do
       resources :captions
     end
@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   resources :sessions, except: :destroy
   delete '/logout' => 'sessions#destroy'
+
+
+  post '/categories/:category_id/images/:image_id/captions/:id/upvote' => 'captions#upvote'
+  get '/categories/:category_id/images/:image_id/captions/:id/upvote' => 'captions#upvote'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
