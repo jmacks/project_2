@@ -9,7 +9,6 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @caption = Caption.new
     @caption.image_id = @caption.id
-
   end
 
   def new
