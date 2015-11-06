@@ -1,8 +1,8 @@
 <h1>memeME</h1>
 
 <h2>Welcome to memeME: the social meme creator</h2>
-<% if @current_user %>
-<h4>Hey, <%= @current_user.username %></h4><br>
+<% if current_user %>
+<h4>Hey, <%= current_user.username %></h4><br>
 <p><%= link_to 'logout', logout_path, method: :delete %>
 <% else %>
 <ul>
@@ -16,4 +16,3 @@
 <% end %>
 
 <h3><%= link_to 'BROWSE CATEGORIES', categories_path %></h3>
-<h3><%= link_to 'BROWSE USERS', users_path %></h3>

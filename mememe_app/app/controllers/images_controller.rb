@@ -6,22 +6,24 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @image = Image.find(params[:image_id])
+    @image = Image.find(params[:id])
     @caption = Caption.new
     @caption.image_id = @caption.id
 
   end
 
   def new
+    @category = Category.find(params[:category_id])
     @image = Image.new
   end
 
   def create
+    @category = Category.find(params[:category_id])
     @image = Image.new(image_params)
     @image.user_id = params[:user_id]
     @image.category_id = params[:category_id]
     @image.save
-    redirect_to category_image_path(@image)
+    redirect_to category_image_path(@category.id, @image.id)
   end
 
   def image_params

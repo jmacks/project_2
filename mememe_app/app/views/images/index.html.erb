@@ -1,8 +1,8 @@
 <h1>Welcome to <%= @category.name %> Images</h1>
 <ul>
-  <% @images.each do |image| %>
+  <% @category.images.each do |image| %>
     <li>
-      <%= link_to 'Image', category_image_path(image) %>
+      <%= link_to image.title, category_image_path(@category.id, image) %>
       <img src= "<%= image.photo_url %>" alt="<%= image.title %>" />
     </li>
     <% end %>

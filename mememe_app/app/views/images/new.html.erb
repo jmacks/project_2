@@ -1,5 +1,5 @@
 <h1>The Path to Meme Starts Here</h1>
-<%= form_for(@image) do |f| %>
+<%= form_for(@image, url: category_images_path(@category.id)) do |f| %>
   <ul>
     <% @image.errors.full_messages.each do |error| %>
       <li><%= error %></li>
@@ -12,6 +12,9 @@
   <p>
     <%= f.label :photo_url %><br />
     <%= f.text_area :photo_url %>
+  </p>
+  <p>
+    <%# f.select :category, options_for_select (%w[Animals Babies Nerds Landscape Idiots Celebrities Other]) %>
   </p>
   <p>
     <%= f.submit 'memeME' %>
