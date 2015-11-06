@@ -10,6 +10,15 @@
  <%= f.text_field :text %>
  <%= f.submit "post" %>
  <% end%>
+<h2>Check Out the Captions</h2>
+<ul>
+ <% @image.captions.each do |caption| %>
+ <li>
+ <p><%= caption.text %></p>
+ </li>
+ <% end %>
+ </ul>
+
 
 
 
