@@ -2,10 +2,13 @@
 <ul>
   <% @category.images.each do |image| %>
     <li>
-      <%= link_to image.title, category_image_path(@category.id, image) %>
+      <h4><%= link_to image.title, category_image_path(@category.id, image) %></h4>
       <img src= "<%= image.photo_url %>" alt="<%= image.title %>" />
     </li>
     <% end %>
 </ul>
 
 <h3><%= link_to 'Post a Potential Meme', new_category_image_path %></h3>
+<%= link_to 'Back to Categories', categories_path %><br>
+
+<%= link_to 'HOME', root_path %>

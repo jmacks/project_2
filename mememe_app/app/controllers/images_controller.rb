@@ -1,5 +1,7 @@
 class ImagesController < ApplicationController
 
+  
+
   def index
     @images = Image.all
     @category = Category.find(params[:category_id])
@@ -7,6 +9,7 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
+    @category = Category.find(params[:category_id])
     @caption = Caption.new
     @caption.image_id = @caption.id
   end
@@ -23,6 +26,13 @@ class ImagesController < ApplicationController
     @image.category_id = params[:category_id]
     @image.save
     redirect_to category_image_path(@category.id, @image.id)
+  end
+
+  def destroy
+    @image = Image.find(params[:id])
+    @image.destroy
+    flash.notice = "The '#{@image.title}' is Gone!"
+    redirect_to category_images_path
   end
 
   def image_params
