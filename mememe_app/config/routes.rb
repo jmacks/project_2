@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
-  resources :users do
+  resources :users do 
     resources :images do
       resources :captions
     end

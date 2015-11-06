@@ -2,6 +2,17 @@
 <h3><%= @category.name %></h3><br>
   <img src= "<%= @image.photo_url %>" alt="<%= @image.title %>" />
 <br>
+
+<h2>Caption Creator</h2>
+<!-- <#%= render 'form' %> -->
+
+<%= form_for @caption, url: category_image_captions_path(@category.id, @image) do |f| %>
+ <%= f.text_field :text %>
+ <%= f.submit "post" %>
+ <% end%>
+
+
+
 <%= link_to 'Delete Image', category_image_path(@category.id, @image.id), method: :delete %><br>
 <%= link_to 'Back to Categories', categories_path %><br>
 <%= link_to 'HOME', root_path %>

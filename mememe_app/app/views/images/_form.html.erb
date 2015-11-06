@@ -1,0 +1,10 @@
+<h2>Put Your Caption Here</h2>
+<%= form_for @caption, url: category_image_captions_path do |f| %>
+<p>
+  <%= f.label :text, "right here" %>
+  <%= f.text_field :text %>
+</p>
+<p>
+<%= f.submit "Captionize" %>
+</p>
+<% end %>

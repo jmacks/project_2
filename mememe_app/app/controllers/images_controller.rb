@@ -1,6 +1,5 @@
 class ImagesController < ApplicationController
 
-  
 
   def index
     @images = Image.all
@@ -11,7 +10,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @category = Category.find(params[:category_id])
     @caption = Caption.new
-    @caption.image_id = @caption.id
+    @caption.image_id = @image.id
   end
 
   def new
