@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   post '/categories/:category_id/images/:image_id/captions/:id/upvote' => 'captions#upvote'
   get '/categories/:category_id/images/:image_id/captions/:id/upvote' => 'captions#upvote'
 
+  get 'welcome/loginerror' => 'welcome#loginerror'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
