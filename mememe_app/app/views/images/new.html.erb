@@ -1,3 +1,4 @@
+<div class="image_new">
 <h1>The Path to Meme Starts Here</h1>
 <%= form_for(@image, url: category_images_path(@category.id)) do |f| %>
   <ul>
@@ -20,3 +21,5 @@
     <%= f.submit 'memeME' %>
   </p>
   <% end %>
+</div>
+<%= link_to 'HOME', root_path %>

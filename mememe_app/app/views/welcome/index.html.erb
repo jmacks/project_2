@@ -1,5 +1,5 @@
-<h1>memeME</h1>
-
+<h1 class="welcome_title">memeME</h1>
+<div class="home_page">
 <h2>Welcome to memeME: the social meme creator</h2>
 <% if current_user %>
 <h4>Hey, <%= current_user.username %></h4><br>
@@ -14,5 +14,6 @@
   </li>
 </ul>
 <% end %>
-
-<h3><%= link_to 'BROWSE CATEGORIES', categories_path %></h3>
+<br>
+<button class="browse"><%= link_to 'BROWSE CATEGORIES', categories_path %></button>
+</div>
