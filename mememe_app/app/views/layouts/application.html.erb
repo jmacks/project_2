@@ -2,22 +2,32 @@
 <html>
 <head>
   <title>MememeApp</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <ul class="nav_bar">
-    <% if current_user %>
-      <li class="nav_link">hey, <%= current_user.username %></li>
-      <li class="nav_link"><%= link_to 'logout', logout_path, method: :delete %></li>
-    <% else %>
-      <li class="nav_link"><%= link_to 'LOGIN', new_session_path %></li>
-      <li class="nav_link"><%= link_to 'SIGN UP', new_user_path %></li>
-    <% end %><br>
-    <li class="nav_butt"><%= link_to 'HOME', root_path %></li><br>
-    <li class="nav_butt"><%= link_to 'BACK', :back %></li>
-  </ul>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          <img id="logo" src="../assets/mememe-logo.png" alt="mememe">
+        </a>
+      </div>
+      <ul id="nav-links" class="nav navbar-nav">
+        <% if current_user %>
+        <li class="navbar-brand">hey, <%= current_user.username %></li>
+        <li class="navbar-brand"><%= link_to 'logout', logout_path, method: :delete %></li>
+        <% else %>
+        <li class="navbar-brand"><%= link_to 'LOGIN', new_session_path %></li>
+        <li class="navbar-brand"><%= link_to 'SIGN UP', new_user_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
+
 
 <%= yield %>
 

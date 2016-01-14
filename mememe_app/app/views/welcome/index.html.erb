@@ -7,13 +7,13 @@
 <% else %>
 <ul>
   <li>
-    <h4><%= link_to 'LOGIN', new_session_path %></h4>
+    <h4 class="btn btn-default"><%= link_to 'LOGIN', new_session_path %></h4>
   </li>
   <li>
-    <h4><%= link_to 'SIGN UP', new_user_path %></h4>
+    <h4 class="btn btn-default"><%= link_to 'SIGN UP', new_user_path %></h4>
   </li>
 </ul>
 <% end %>
 <br>
-<button class="browse"><%= link_to 'BROWSE CATEGORIES', categories_path %></button>
+<button class="btn btn-default"><%= link_to 'BROWSE CATEGORIES', categories_path %></button>
 </div>
