@@ -17,7 +17,7 @@
       </div>
       <ul id="nav-links" class="nav navbar-nav">
         <% if current_user %>
-        <li id="nav-welcome" class="navbar-brand">hey, <%= current_user.username %></li>
+        <li id="nav-welcome" class="navbar-brand"><%= current_user.username %> logged in</li>
         <li class="navbar-brand"><%= link_to 'logout', logout_path, method: :delete %></li>
         <% else %>
         <li class="navbar-brand"><%= link_to 'LOGIN', new_session_path %></li>
