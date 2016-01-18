@@ -1,10 +1,11 @@
-<div class="login_form"
+<div id="login-form" class="login_form">
 <h1>Login</h1>
-<%= form_tag sessions_path, method: :post do %>
-UserName: <%= text_field_tag :username %>
-Password: <%= password_field_tag :password %>
-<%= submit_tag "Log Yourself In" %>
-<% end %>
+  <%= bootstrap_form_tag url: '/sessions' do |f| %>
+    <%= f.text_field :username%>
+    <%= f.password_field :password%>
+    <%= f.submit "Login" %>
+  <% end %>
+  <br><br>
 <%= link_to "BACK", :back %><br>
 <%= link_to "HOME", root_path %>
 </div>

@@ -1,18 +1,13 @@
-<div class="user_new">
-<h1>Sign Up!</h1>
-<h2>Take memeME for all it's worth</h2>
-<%= form_for(@user) do |f| %>
-<p>
-  UserName: <%= f.text_field :username %>
-</p><br>
-<p>
-  Password: <%= f.password_field :password %>
-</p><br>
-<p>
-  Password Confirm: <%= f.password_field :password_confirmation %>
-</p><br>
-<%= f.submit "Fuck Yea!" %>
-<% end %>
+
+<div id="new-user">
+  <h1>Sign Up!</h1>
+  <h2>Take memeME for all it's worth</h2>
+    <%= bootstrap_form_for(@user, layout: :horizontal) do |f| %>
+      <%= f.text_field :username, placeholder: "Choose a Username...", icon: "user" %>
+      <%= f.password_field :password, placeholder: "Choose a Password..."%>
+      <%= f.password_field :password_confirmation, label: "Confirm Password", placeholder: "Confirm Password..." %>
+      <%= f.submit "Sign Up" %>
+    <% end %>
 </div>
 <br>
 
