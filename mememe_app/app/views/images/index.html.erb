@@ -1,16 +1,19 @@
 <div class="image_index">
 <h1>Welcome to <%= @category.name %> Images</h1>
+<button class="btn btn-lg"><%= link_to 'Post a Potential ' + @category.name + ' Meme', new_category_image_path %></button><br>
+
 <ul>
   <% @category.images.each do |image| %>
     <li>
-      <h4><%= link_to image.title, category_image_path(@category.id, image) %></h4>
+      <h4 id="image-title"><%= link_to image.title, category_image_path(@category.id, image) %></h4>
       <img src= "<%= image.photo_url %>" alt="<%= image.title %>" />
     </li>
     <% end %>
 </ul>
 
-<h3><%= link_to 'Post a Potential Meme', new_category_image_path %></h3>
 </div>
-<%= link_to 'Back to Categories', categories_path %><br>
 
-<%= link_to 'HOME', root_path %>
+<div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default"><%= link_to 'Back to Categories', categories_path %></button>
+  <button type="button" class="btn btn-default"><%= link_to 'HOME', root_path %></button>
+</div>
