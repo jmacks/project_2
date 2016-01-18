@@ -1,29 +1,29 @@
 <div class="image_show">
 <h1> <%= @image.title %> </h1>
-<h3><%= @category.name %></h3><br>
+<h5><%= @category.name %></h5><br>
   <img src= "<%= @image.photo_url %>" alt="<%= @image.title %>" />
 <br>
 
-<h2>Caption Creator</h2>
+<h2>Meme Creator</h2>
 <!-- <#%= render 'form' %> -->
 
 <%= form_for @caption, url: category_image_captions_path(@category.id, @image) do |f| %>
  <%= f.text_field :text %>
  <%= f.submit "post" %>
  <% end%>
-<h2>Check Out the Captions</h2>
-<ul>
+<h2>The Memes</h2>
+<ul id="image-captions" class="list-group">
  <% @image.captions.each do |caption| %>
- <li>
- <%= caption.text %><button class="like"><%= link_to 'LIKE', "/categories/#{@category.id}/images/#{@image.id}/captions/#{caption.id}/upvote" %></button><%= caption.votes_for.size %>
+ <li class="list-group-item">
+ <%= caption.text %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <button class="like"><%= link_to 'LIKE', "/categories/#{@category.id}/images/#{@image.id}/captions/#{caption.id}/upvote" %></button> &nbsp;<%= caption.votes_for.size %>
  </li>
  <% end %>
  </ul>
  </div>
 
-
-
-
-<%= link_to 'Delete Image', category_image_path(@category.id, @image.id), method: :delete %><br>
-<%= link_to 'Back to Categories', categories_path %><br>
-<%= link_to 'HOME', root_path %>
+ <div class="btn-group" role="group" aria-label="...">
+   <button type="button" class="btn btn-default"><%= link_to 'Back to Categories', categories_path %></button>
+   <button type="button" class="btn btn-default"><%= link_to 'HOME', root_path %></button>
+   <button type="button" class="btn btn-default"><%= link_to 'Delete Image', category_image_path(@category.id, @image.id), method: :delete %></button>
+ </div>

@@ -1,12 +1,11 @@
 <div class="category_index">
 <h1>Choose an Image Category</h1>
+<br>
 <ul>
-  <% @categories.each do |category| %>
-  <li>
-    <%= link_to category.name, category_images_path(category) %>
-  </li>
-  <% end %>
+  <div class="btn-group-vertical" role="group" aria-label="...">
+    <% @categories.each do |category| %>
+      <button type="button" class="btn btn-default btn-lg"><%= link_to category.name, category_images_path(category) %></button>
+    <% end %>
+  </div>
 </ul>
 </div>
-
-<%= link_to 'HOME', root_path %>
