@@ -13,8 +13,6 @@ class CaptionsController < ApplicationController
 
   def upvote
     @caption = Caption.find(params[:id])
-    @captionVotes = @caption.votes_for.size
-    puts @caption
     @caption.liked_by current_user
     redirect_to :back
   end

@@ -4,22 +4,39 @@
   <img src= "<%= @image.photo_url %>" alt="<%= @image.title %>" />
 <br>
 
-<h2>Meme Creator</h2>
-<!-- <#%= render 'form' %> -->
 
+<h2>Meme Creator</h2>
+<!-- form to create image captions -->
 <%= form_for @caption, url: category_image_captions_path(@category.id, @image) do |f| %>
  <%= f.text_field :text %>
  <%= f.submit "post" %>
  <% end%>
+
 <h2>The Memes</h2>
+<!-- render image captions -->
 <ul id="image-captions" class="list-group">
+
+ <% likeNumbers = [] %>
  <% @image.captions.each do |caption| %>
  <li class="list-group-item">
  <%= caption.text %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <button class="like"><%= link_to 'LIKE', "/categories/#{@category.id}/images/#{@image.id}/captions/#{caption.id}/upvote" %></button> &nbsp;<%= caption.votes_for.size %>
  </li>
+ <% likeNumbers.push(caption.votes_for.size) %>
  <% end %>
  </ul>
+ <% mostLikes = likeNumbers.max %>
+
+
+ <!-- display caption with most likes -->
+ <div id="top-meme">
+   <% @image.captions.each do |cap| %>
+    <% if cap.votes_for.size >= mostLikes %>
+    <%= cap.text %>
+    <% end %>
+   <% end %>
+ </div>
+
  </div>
 
  <div class="btn-group" role="group" aria-label="...">
