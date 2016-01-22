@@ -1,9 +1,14 @@
 <div class="image_show">
+  
 <h1> <%= @image.title %> </h1>
 <h5><%= @category.name %></h5><br>
-  <img src= "<%= @image.photo_url %>" alt="<%= @image.title %>" />
-<br>
 
+<div id="image">
+  <img src= "<%= @image.photo_url %>" alt="<%= @image.title %>" />
+  <h2><%= @topMeme.upcase %></h2>
+</div>
+
+<br>
 
 <h2>Meme Creator</h2>
 <!-- form to create image captions -->
@@ -16,30 +21,17 @@
 <!-- render image captions -->
 <ul id="image-captions" class="list-group">
 
- <% likeNumbers = [] %>
  <% @image.captions.each do |caption| %>
  <li class="list-group-item">
  <%= caption.text %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <button class="like"><%= link_to 'LIKE', "/categories/#{@category.id}/images/#{@image.id}/captions/#{caption.id}/upvote" %></button> &nbsp;<%= caption.votes_for.size %>
  </li>
- <% likeNumbers.push(caption.votes_for.size) %>
  <% end %>
  </ul>
- <% mostLikes = likeNumbers.max %>
-
-
- <!-- display caption with most likes -->
- <div id="top-meme">
-   <% @image.captions.each do |cap| %>
-    <% if cap.votes_for.size >= mostLikes %>
-    <%= cap.text %>
-    <% end %>
-   <% end %>
- </div>
 
  </div>
 
- <div class="btn-group" role="group" aria-label="...">
+ <div id="foot-nav" class="btn-group" role="group" aria-label="...">
    <button type="button" class="btn btn-default"><%= link_to 'Back to Categories', categories_path %></button>
    <button type="button" class="btn btn-default"><%= link_to 'HOME', root_path %></button>
    <button type="button" class="btn btn-default"><%= link_to 'Delete Image', category_image_path(@category.id, @image.id), method: :delete %></button>

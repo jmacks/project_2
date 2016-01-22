@@ -11,7 +11,20 @@ class ImagesController < ApplicationController
     @category = Category.find(params[:category_id])
     @caption = Caption.new
     @caption.image_id = @image.id
+
+    @likeNumbers = []
+    @image.captions.each do |caption|
+      @likeNumbers.push(caption.votes_for.size)
+    end
+    @mostLikes = @likeNumbers.max
+
+    @image.captions.each do |cap|
+      if cap.votes_for.size >= @mostLikes
+        @topMeme = cap.text
+      end
+    end
   end
+  
 
   def new
     @category = Category.find(params[:category_id])
